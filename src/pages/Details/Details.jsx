@@ -8,19 +8,28 @@ const Details = () => {
   const allProducts = useLoaderData();
   const productsDetails = allProducts.find((product) => product._id === id);
   //   console.log(productsDetails);
-
+  const { brandName, description, image, price, productName, rating } =
+    productsDetails;
+  const cartItem = {
+    brandName,
+    description,
+    image,
+    price,
+    productName,
+    rating,
+  };
   const handleAddToCart = () => {
     // console.log(productsDetails);
-    fetch("http://localhost:5000/addToCart", {
+    fetch("http://localhost:5000/myCart", {
       method: "post",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(productsDetails),
+      body: JSON.stringify(cartItem),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.acknowledged) {
           swal({
             title: "Success!",

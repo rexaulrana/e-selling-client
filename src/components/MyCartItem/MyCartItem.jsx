@@ -1,15 +1,36 @@
-const MyCartItem = ({ cart }) => {
+import swal from "sweetalert";
+
+const MyCartItem = ({ cart, setRemaining, remaining }) => {
   //   console.log(cart);
   const { _id, productName, image } = cart;
   const handleDelete = (_id) => {
     console.log("deleted", _id);
-    fetch(`http://localhost:5000/mycart/${_id}`, {
-      method: "delete",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this item",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        fetch(`http://localhost:5000/mycart/${_id}`, {
+          method: "Delete",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              swal("Poof! Your cart item has been deleted!", {
+                icon: "success",
+              });
+            }
+            const existsItem = remaining.filter((item) => item._id !== _id);
+            setRemaining(existsItem);
+          });
+      } else {
+        swal("Your cart item is safe!");
+      }
+    });
   };
   return (
     <div>
