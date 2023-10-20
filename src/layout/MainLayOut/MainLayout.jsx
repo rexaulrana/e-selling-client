@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import "react-toastify/dist/ReactToastify.css";
 
 // import Home from "../../pages/Home/Home";
 
