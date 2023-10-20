@@ -26,7 +26,7 @@ const Products = () => {
         {!products ? (
           <h1>{noProducts}</h1>
         ) : (
-          <div className="md:grid grid-cols-2 gap-3">
+          <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
             {products.map((product) => (
               <Product key={product._id} product={product}></Product>
             ))}

@@ -54,7 +54,9 @@ const AddProduct = () => {
 
   return (
     <div className="mt-6 mb-5">
-      <h1 className="text-center text-4xl font-bold">Add Product</h1>
+      <h1 className="text-center text-4xl font-bold text-green-600">
+        Add Product
+      </h1>
 
       <div>
         <form onSubmit={handleAddProduct}>

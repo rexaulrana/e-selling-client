@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-  console.log(product);
-  const { _id, productName, brandName, description, image, price, rating } =
+  //   console.log(product);
+  const { _id, productName, description, brandName, image, price, rating } =
     product;
   return (
     <div>
@@ -80,7 +80,8 @@ const Product = ({ product }) => {
               ${price}
             </span>
             <Link
-              href="#"
+              details={description}
+              to={`/products/${_id}`}
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Details
