@@ -14,11 +14,11 @@ const Products = () => {
       (product) => product.brandName === brandName
     );
     setProducts(brandProducts);
-    if (brandProducts.length === 0) {
+    if (products.length === 0) {
       setNoProducts("No Products Available for this brand");
+      console.log("rna");
     }
-    // console.log(products.length);
-  }, [brandName, allProducts]);
+  }, [brandName, allProducts, products.length]);
   return (
     <div>
       <div className="mt-5 mb-6">{products && <Slider></Slider>}</div>

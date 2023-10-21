@@ -35,7 +35,7 @@ const AddProduct = () => {
     };
     // console.log(newProduct);
 
-    fetch("http://localhost:5000/addProduct", {
+    fetch("https://e-selling-f3zbghz52-rexaulrana.vercel.app/addProduct", {
       method: "post",
       headers: {
         "content-type": "application/json",

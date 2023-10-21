@@ -1,8 +1,18 @@
-# React + Vite
+`e-Selling`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Live Link:
 
-Currently, two official plugins are available:
+[e-selling](https://e-selling-227e0.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features of my website:
+
+1. In `navbar` user can change theme of the website by clicking toggle.
+2. user can sign in with google or email, password ,name,photoURL. Only the logged in user will access `Details page`,`Update`,`My cart`,`Add product`,`Update product` ,`Add to Cart`
+3. In `Home page` user will see brand name. When user click any `brand` user will see products of the brand.
+4. `product` where user will see products of the brand and see `Details` ,`Update` button. By clicking `Details ` button user will see the details information of the product.
+
+5.By clicking `Update ` button user redirect to to `update product` page . where user can update product information .
+
+6. In `Product Details` page user also see `Add To Cart ` button .By clicking `Add to cart ` this product will be added to `My Cart` page.
+7. In `My cart` page user will see all his favorite items. user can delete any product by clicking `Delete` button.
+8. In `Add product` page where user can add product to this website .

@@ -37,7 +37,8 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/mycart"),
+        loader: () =>
+          fetch("https://e-selling-f3zbghz52-rexaulrana.vercel.app/mycart"),
       },
       {
         path: "/login",
@@ -50,7 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/brands/:brandName",
         element: <Products></Products>,
-        loader: () => fetch("http://localhost:5000/allProducts"),
+        loader: () =>
+          fetch(
+            "https://e-selling-f3zbghz52-rexaulrana.vercel.app/allProducts"
+          ),
       },
       {
         path: "/products/:id",
@@ -59,7 +63,10 @@ const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allProducts"),
+        loader: () =>
+          fetch(
+            "https://e-selling-f3zbghz52-rexaulrana.vercel.app/allProducts"
+          ),
       },
       {
         path: "/update/:id",
@@ -69,7 +76,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allProducts/${params.id}`),
+          fetch(
+            `https://e-selling-f3zbghz52-rexaulrana.vercel.app/allProducts/${params.id}`
+          ),
       },
       {
         path: "/signUp",

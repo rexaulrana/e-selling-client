@@ -5,11 +5,13 @@ import Brand from "../Brand/Brand";
 const Brands = () => {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/brands")
+    fetch("https://e-selling-f3zbghz52-rexaulrana.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);
-  //   console.log(brands);
+  // if (brands.length  ===) {
+  //   console.log("brands");
+  // }
   return (
     <div className="mt-5 mb-5">
       <div>

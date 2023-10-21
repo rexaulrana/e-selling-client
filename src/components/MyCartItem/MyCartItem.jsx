@@ -13,9 +13,12 @@ const MyCartItem = ({ cart, setRemaining, remaining }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/mycart/${_id}`, {
-          method: "Delete",
-        })
+        fetch(
+          `https://e-selling-f3zbghz52-rexaulrana.vercel.app/mycart/${_id}`,
+          {
+            method: "Delete",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

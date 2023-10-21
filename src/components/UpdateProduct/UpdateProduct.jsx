@@ -41,7 +41,7 @@ const UpdateProduct = () => {
     };
     // console.log(updateProduct);
 
-    fetch(`http://localhost:5000/update/${_id}`, {
+    fetch(`https://e-selling-f3zbghz52-rexaulrana.vercel.app/update/${_id}`, {
       method: "put",
       headers: {
         "content-type": "application/json",

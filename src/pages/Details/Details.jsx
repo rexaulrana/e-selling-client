@@ -20,7 +20,7 @@ const Details = () => {
   };
   const handleAddToCart = () => {
     // console.log(productsDetails);
-    fetch("http://localhost:5000/myCart", {
+    fetch("https://e-selling-f3zbghz52-rexaulrana.vercel.app/myCart", {
       method: "post",
       headers: {
         "content-type": "application/json",

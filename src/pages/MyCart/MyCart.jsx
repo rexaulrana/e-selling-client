@@ -5,7 +5,7 @@ import MyCartItem from "../../components/MyCartItem/MyCartItem";
 const MyCart = () => {
   // const [product, setProducts] = useState([]);
   // useEffect(() => {
-  //   fetch("http://localhost:5000/mycart")
+  //   fetch("https://e-selling-f3zbghz52-rexaulrana.vercel.app/mycart")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       console.log(data);
