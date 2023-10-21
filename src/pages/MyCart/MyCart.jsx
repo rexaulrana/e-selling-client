@@ -25,7 +25,7 @@ const MyCart = () => {
       setNoData("No data found");
     }
   }, [allProducts]);
-  console.log(noData);
+  // console.log(noData);
   return (
     <div>
       <h3 className="text-4xl font-bold text-green-600 text-center mt-6 mb-7">
