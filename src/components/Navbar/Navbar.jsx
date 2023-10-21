@@ -1,6 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/l.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+// import swal from "sweetalert";
+import { ToastContainer, toast } from "react-toastify";
 const Navbar = () => {
+  const { loading, user, logOut } = useContext(AuthContext);
+  console.log(loading, user);
+  const handleLogout = () => {
+    logOut()
+      .then(toast("Logout successful"))
+      .catch((error) => console.log(error.message));
+  };
   const nav = (
     <>
       <li>
@@ -12,9 +23,9 @@ const Navbar = () => {
       <li>
         <NavLink to={"/myCart"}>My Cart</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to={"/login"}>Login</NavLink>
-      </li>
+      </li> */}
     </>
   );
   return (
@@ -44,11 +55,11 @@ const Navbar = () => {
             {nav}
           </ul>
         </div>
-        <div className="flex">
+        <div className="flex justify-center items-center ">
           {" "}
           <img className="h-[45px]" src={logo} alt="" />
-          <h1 className="text-xl  md:text-5xl font-bold">
-            e-Selling<span className="text-green-700 text-4xl">.</span>{" "}
+          <h1 className="text-lg lg:text-5xl font-bold">
+            e-Selling<span className="text-green-700 lg:text-4xl">.</span>{" "}
           </h1>
         </div>
       </div>
@@ -58,11 +69,32 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="flex-col items-center ">
           <div className="flex justify-center items-center">
-            <h1>user</h1>
-            <h2> </h2>
+            {user ? (
+              <div className="">
+                <div className="flex  justify-center">
+                  <img
+                    className="w-9 rounded-full"
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                  />
+                </div>
+                <h1>{user?.displayName}</h1>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
-          <div>
-            <h2>name</h2>
+          <div className="flex justify-center">
+            {user ? (
+              <button onClick={handleLogout} className="btn  bg-green-400">
+                Logout
+              </button>
+            ) : (
+              <button className="btn bg-green-400 hover:bg-green-600">
+                <NavLink to={"/login"}>Login</NavLink>
+              </button>
+            )}
+            <ToastContainer></ToastContainer>
           </div>
         </div>
         <div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import MyCartItem from "../../components/MyCartItem/MyCartItem";
 
@@ -20,15 +20,18 @@ const MyCart = () => {
   const allProducts = useLoaderData();
   const [remaining, setRemaining] = useState(allProducts);
   // console.log(allProducts);
-  if (allProducts.length < 1) {
-    setNoData("No data found");
-  }
+  useEffect(() => {
+    if (allProducts.length < 1) {
+      setNoData("No data found");
+    }
+  }, [allProducts]);
+  console.log(noData);
   return (
     <div>
       <h3 className="text-4xl font-bold text-green-600 text-center mt-6 mb-7">
         My Cart
       </h3>
-      {!remaining && <h1>{noData}</h1>}
+      {!remaining && <h1 className="text-5xl font-bold">{noData}</h1>}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {remaining.map((product) => (
           <MyCartItem

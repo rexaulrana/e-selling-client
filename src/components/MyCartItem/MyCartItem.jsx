@@ -4,7 +4,7 @@ const MyCartItem = ({ cart, setRemaining, remaining }) => {
   //   console.log(cart);
   const { _id, productName, image } = cart;
   const handleDelete = (_id) => {
-    console.log("deleted", _id);
+    // console.log("deleted", _id);
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this item",
@@ -20,13 +20,13 @@ const MyCartItem = ({ cart, setRemaining, remaining }) => {
           .then((data) => {
             // console.log(data);
 
-            const existsItem = remaining.filter((item) => item._id !== _id);
-            setRemaining(existsItem);
             if (data.deletedCount > 0) {
               swal("Poof! Your cart item has been deleted!", {
                 icon: "success",
               });
             }
+            const existsItem = remaining.filter((item) => item._id !== _id);
+            setRemaining(existsItem);
           });
       } else {
         swal("Your cart item is safe!");

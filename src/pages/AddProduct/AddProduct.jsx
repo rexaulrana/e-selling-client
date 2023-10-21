@@ -33,7 +33,7 @@ const AddProduct = () => {
       rating,
       image,
     };
-    console.log(newProduct);
+    // console.log(newProduct);
 
     fetch("http://localhost:5000/addProduct", {
       method: "post",
@@ -47,7 +47,7 @@ const AddProduct = () => {
         console.log(data);
         if (data.acknowledged) {
           toast("Your product added successfully");
-          form.reset();
+          // form.reset();
         }
       });
   };

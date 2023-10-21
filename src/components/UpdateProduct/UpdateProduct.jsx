@@ -1,14 +1,13 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 // import Product from "../Product/Product";
 
 const UpdateProduct = () => {
-  const { id } = useParams();
-  const allProducts = useLoaderData();
-  const products = allProducts.filter((Product) => Product._id === id);
+  const product = useLoaderData();
+
   const { _id, productName, description, brandName, image, price, rating } =
-    products;
-  console.log(products);
+    product;
+  // console.log(product);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -40,9 +39,9 @@ const UpdateProduct = () => {
       rating,
       image,
     };
-    console.log(updateProduct);
+    // console.log(updateProduct);
 
-    fetch(`http://localhost:5000/${_id}`, {
+    fetch(`http://localhost:5000/update/${_id}`, {
       method: "put",
       headers: {
         "content-type": "application/json",
@@ -51,10 +50,9 @@ const UpdateProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.acknowledged) {
-          toast("Your product added successfully");
-          form.reset();
+        // console.log(data);
+        if (data.modifiedCount > 0) {
+          toast("Your product Updated successfully");
         }
       });
   };
@@ -78,6 +76,7 @@ const UpdateProduct = () => {
                     placeholder="product-Name"
                     className="input input-bordered md:w-full"
                     name="productName"
+                    defaultValue={productName}
                   />
                 </label>
               </div>
@@ -90,6 +89,7 @@ const UpdateProduct = () => {
                   <select
                     name="brandName"
                     className="select select-bordered w-full"
+                    defaultValue={brandName}
                   >
                     <option>Select Brand Name</option>
                     <option>Walmart</option>
@@ -110,6 +110,7 @@ const UpdateProduct = () => {
                 <label className="input-group">
                   <input
                     type="text"
+                    defaultValue={price}
                     placeholder="price"
                     className="input input-bordered md:w-full"
                     name="price"
@@ -126,6 +127,7 @@ const UpdateProduct = () => {
                 <label className="input-group">
                   <input
                     type="text"
+                    defaultValue={description}
                     placeholder="description"
                     className="input input-bordered md:w-full"
                     name="description"
@@ -140,6 +142,7 @@ const UpdateProduct = () => {
                 </label>
                 <label className="input-group">
                   <input
+                    defaultValue={rating}
                     type="text"
                     placeholder="Rating"
                     className="input input-bordered md:w-full"
@@ -155,6 +158,7 @@ const UpdateProduct = () => {
                 <label className="input-group">
                   <input
                     type="text"
+                    defaultValue={image}
                     placeholder="Product image"
                     className="input input-bordered md:w-full"
                     name="image"

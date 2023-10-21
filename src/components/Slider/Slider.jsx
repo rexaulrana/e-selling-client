@@ -1,4 +1,7 @@
 const Slider = () => {
+  // https://i.ibb.co/6bRKmsw/sl1.jpg
+  // https://i.ibb.co/RDgdw2K/sl2.jpg
+
   return (
     <div>
       <h1 className="text-center text-4xl font-bold mb-7 text-green-600">
