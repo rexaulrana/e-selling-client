@@ -15,22 +15,12 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
-  // create account with email password
-  const auth = getAuth(app);
-  const signIn = (email, password) => {
-    setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
-  // login
-  const logIn = (email, password) => {
-    setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
-  };
 
+  const auth = getAuth(app);
   // signin with google
   const googleSignUp = () => {
-    setLoading(true);
     const googleProvider = new GoogleAuthProvider();
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -44,6 +34,17 @@ const AuthProvider = ({ children }) => {
       unSubscribe;
     };
   }, [auth]);
+
+  // create account with email password
+  const signIn = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+  // login
+  const logIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
   // console.log(user, loading);
   // logOut
   const logOut = () => {

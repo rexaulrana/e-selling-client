@@ -8,9 +8,9 @@ const CustomerReview = () => {
       <div className="carousel w-full">
         <div
           id="slide1"
-          className="carousel-item relative w-full bg-green-300   ml-5  "
+          className="carousel-item relative w-full bg-green-600   ml-5  "
         >
-          <p className="text-xl px-20 py-28">
+          <p className="text-white text-xl px-20 py-28">
             "I can't say enough good things about this e-commerce site! The
             variety of products is amazing, and the user-friendly interface
             makes shopping a breeze. I've been a loyal customer for over a year
@@ -34,9 +34,9 @@ const CustomerReview = () => {
         </div>
         <div
           id="slide2"
-          className="carousel-item relative w-full  bg-green-300   ml-5 "
+          className="carousel-item relative w-full  bg-green-600   ml-5 "
         >
-          <p className="text-xl px-20 py-28">
+          <p className=" text-white text-xl px-20 py-28">
             "This e-commerce site is a tech geek's paradise. Whether I'm looking
             for the latest gadgets, accessories, or hard-to-find tech
             components, they've got it all. The product reviews and ratings are
@@ -63,9 +63,9 @@ const CustomerReview = () => {
         </div>
         <div
           id="slide3"
-          className="carousel-item relative w-full  bg-green-300   ml-5 "
+          className="carousel-item relative w-full  bg-green-600   ml-5 "
         >
-          <p className="text-xl px-20 py-28">
+          <p className="text-white  text-xl px-20 py-28">
             "As a busy mom, I rely on online shopping to make my life easier.
             This e-commerce site has been a lifesaver! I can find everything I
             need for my family in one place, from groceries to clothing and
@@ -88,9 +88,9 @@ const CustomerReview = () => {
         </div>
         <div
           id="slide4"
-          className="carousel-item relative w-full  bg-green-300   ml-5"
+          className="carousel-item relative w-full  bg-green-600   ml-5"
         >
-          <p className="text-xl px-20 py-28">
+          <p className="text-white  text-xl px-20 py-28">
             "This e-commerce site is a tech geek's paradise. Whether I'm looking
             for the latest gadgets, accessories, or hard-to-find tech
             components, they've got it all. The product reviews and ratings are

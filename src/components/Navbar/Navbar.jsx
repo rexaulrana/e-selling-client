@@ -4,14 +4,18 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 // import swal from "sweetalert";
 import { ToastContainer, toast } from "react-toastify";
+// import useTheme from "../theme/useTheme";
 const Navbar = () => {
-  const { loading, user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   // console.log(loading, user);
   const handleLogout = () => {
     logOut()
       .then(toast("Logout successful"))
       .catch((error) => console.log(error.message));
   };
+
+  // return <button onClick={toggleTheme}>Change Theme</button>;
+
   const nav = (
     <>
       <li>
@@ -57,16 +61,19 @@ const Navbar = () => {
         </div>
         <div className="flex justify-center items-center ">
           {" "}
-          <img className="h-[45px]" src={logo} alt="" />
-          <h1 className="text-lg lg:text-5xl font-bold">
-            e-Selling<span className="text-green-700 lg:text-4xl">.</span>{" "}
+          <img className="h-[45px] mr-2" src={logo} alt="" />
+          <h1 className="text-lg md:text-5xl font-bold">
+            e-Selling<span className="text-green-700 md:text-4xl">.</span>{" "}
           </h1>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">{nav}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end ">
+        <div className="mr-4">
+          <button className="btn">dark</button>
+        </div>
         <div className="flex-col items-center ">
           <div className="flex justify-center items-center">
             {user ? (
@@ -84,22 +91,23 @@ const Navbar = () => {
               ""
             )}
           </div>
-          <div className="flex justify-center">
+          <div className="flex items-center justify-center">
             {user ? (
-              <button onClick={handleLogout} className="btn  bg-green-400">
+              <button
+                onClick={handleLogout}
+                className="btn text-white  bg-green-400"
+              >
                 Logout
               </button>
             ) : (
-              <button className="btn bg-green-400 hover:bg-green-600">
+              <button className="btn text-white bg-green-400 hover:bg-green-600">
                 <NavLink to={"/login"}>Login</NavLink>
               </button>
             )}
             <ToastContainer></ToastContainer>
           </div>
         </div>
-        <div>
-          <div></div>
-        </div>
+        <div></div>
       </div>
     </div>
   );

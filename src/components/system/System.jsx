@@ -8,6 +8,9 @@ import {
 const System = () => {
   return (
     <div className="mt-10 mb-5">
+      <h1 className="text-center text-4xl font-bold  mt-5 mb-5">
+        Why Choose Us?{" "}
+      </h1>
       <div className="md:flex justify-evenly items-center gap-5">
         <div className="text-center border-2 border-green-500 py-4 px-5">
           <h1 className="text-8xl w-20 mx-auto">
