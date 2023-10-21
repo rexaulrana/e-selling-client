@@ -4,12 +4,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import swal from "sweetalert";
 import { updateProfile } from "firebase/auth";
+import { FaGoogle } from "react-icons/fa6";
 
 const SignUp = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
-  const { signIn } = useContext(AuthContext);
+  // console.log(location);
+  const { signIn, googleSignUp } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
@@ -19,7 +20,7 @@ const SignUp = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password, name, photo);
+    // console.log(email, password, name, photo);
     if (password.length < 6) {
       setError("Password must be 6 characters");
       return;
@@ -48,6 +49,16 @@ const SignUp = () => {
 
         setError(`${error.message}`);
       });
+  };
+
+  const handleGoogleLog = () => {
+    googleSignUp().then(() => {
+      swal("success", "Login successful", "success");
+      setError("");
+      navigate(location.state ? location.state : "/").catch(
+        setError(`${error.message}`)
+      );
+    });
   };
 
   return (
@@ -108,7 +119,7 @@ const SignUp = () => {
                 />
                 <span
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute left-60  bottom-[215px] text-2xl"
+                  className="absolute  left-72  bottom-[265px] text-2xl"
                 >
                   {showPassword ? (
                     <AiFillEye></AiFillEye>
@@ -141,6 +152,17 @@ const SignUp = () => {
               >
                 Login
               </Link>
+              <div className="btn">
+                <button
+                  onClick={handleGoogleLog}
+                  className="flex justify-center items-center mx-auto gap-3 "
+                >
+                  <span className="text-red-600 text-2xl">
+                    <FaGoogle></FaGoogle>
+                  </span>
+                  signup with Google
+                </button>
+              </div>
             </div>
           </div>
         </div>

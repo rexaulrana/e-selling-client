@@ -6,7 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 const Navbar = () => {
   const { loading, user, logOut } = useContext(AuthContext);
-  console.log(loading, user);
+  // console.log(loading, user);
   const handleLogout = () => {
     logOut()
       .then(toast("Logout successful"))

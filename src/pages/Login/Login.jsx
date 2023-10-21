@@ -34,12 +34,12 @@ const Login = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero  bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center ">
             <h1 className="text-5xl font-bold text-green-600">Login now!</h1>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogIn} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -61,12 +61,12 @@ const Login = () => {
                   type={showPassword ? "text" : "password"}
                   placeholder="password"
                   name="password"
-                  className="input input-bordered"
+                  className="input relative input-bordered"
                   required
                 />
                 <span
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute left-56  bottom-[220px] text-2xl"
+                  className="absolute left-52  bottom-[220px] text-2xl"
                 >
                   {showPassword ? (
                     <AiFillEye></AiFillEye>
