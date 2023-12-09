@@ -34,7 +34,7 @@ const SignUp = () => {
 
     signIn(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result.user);
         swal("success", "Sign Up successful", "success");
         setError("");
         navigate(location.state ? location.state : "/");

@@ -1,12 +1,16 @@
 import { useContext, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import swal from "sweetalert";
+import app from "../../firebase/firebase.config";
+import axios from "axios";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const handleLogIn = (e) => {
@@ -17,14 +21,24 @@ const Login = () => {
 
     // login with email,password
     logIn(email, password)
-      .then((result) => {
+      .then(() => {
         swal("success", "Login successful", "success");
         setError("");
-        e.target.reset();
-        navigate(location.state ? location.state : "/");
+        // e.target.reset();
         setError("");
-        e.target.reset();
-        console.log(result.user);
+        const user = { email };
+        // e.target.reset();
+        // console.log(result.user);
+        // navigate(location.state ? location.state : "/");
+
+        // jwt
+        axios
+          .post("http://localhost:5000/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
       })
       .catch((error) => {
         setError(`${error.message}`);

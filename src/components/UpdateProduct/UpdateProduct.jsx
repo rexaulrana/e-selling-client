@@ -85,7 +85,7 @@ const UpdateProduct = () => {
                 <label className="label">
                   <span className="label-text font-medium">Brand Name</span>
                 </label>
-                <label className="input-group">
+                <label className="input-group md:w-full">
                   <select
                     name="brandName"
                     className="select select-bordered w-full"
